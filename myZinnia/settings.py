@@ -1,3 +1,5 @@
+import sys, os
+
 # Django settings for myZinnia project.
 
 DEBUG = True
@@ -11,8 +13,8 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': os.path.join(os.path.dirname(__file__), 'myZinnia.db'),
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
@@ -72,6 +74,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    "/home/lei/Documents/zinnia/myZinnia/myZinnia/static",
 )
 
 # List of finder classes that know how to find static files in
@@ -120,6 +123,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.comments',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -127,6 +131,8 @@ INSTALLED_APPS = (
     'tagging',
     'mptt',
     'zinnia',
+    'south',
+    'django_extensions',
 )
 
 # A sample logging configuration. The only tangible logging
