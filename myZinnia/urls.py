@@ -10,6 +10,7 @@ from django.views.generic.base import RedirectView
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'myZinnia.views.home', name='home'),
@@ -24,3 +25,4 @@ urlpatterns = patterns('',
     url(r'^weblog/', include('zinnia.urls')),
     url(r'^comments/', include('django.contrib.comments.urls')),
 )
+urlpatterns += staticfiles_urlpatterns()
