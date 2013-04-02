@@ -6,6 +6,7 @@ admin.autodiscover()
 import os
 
 from django.conf.urls import patterns, include, url
+from django.views.generic.base import RedirectView
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
@@ -18,7 +19,8 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-     url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', RedirectView.as_view(url='/weblog/')),
+    url(r'^admin/', include(admin.site.urls)),
     url(r'^weblog/', include('zinnia.urls')),
     url(r'^comments/', include('django.contrib.comments.urls')),
 )
